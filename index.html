@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Import Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Import Font Awesome -->
+    <!-- <script
+      src="https://kit.fontawesome.com/c42a573f09.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <link rel="stylesheet" href="styles.css" />
+    <title>Movie Watchlist</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <h1 class="header-title">Find your film</h1>
+        <a class="my-watchlist">My Watchlist</a>
+      </div>
+    </header>
+    <form id="search-form" class="search-container">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" name="search" class="search-box" id="search-box" />
+      <button type="submit" class="search-btn" id="search-btn">Search</button>
+    </form>
+
+    <main class="movie-container" id="movie-container">
+      <!-- <div class="film-icon-placeholder" id="film-icon-placeholder">
+        <i class="fa-solid fa-film"></i>
+        <h2>Start exploring</h2>
+      </div> -->
+      <div class="movie">
+        <div class="poster">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BNTFkM2NiZDItNzY0MS00OWUyLWE1YTYtNjA4YThmOTFiMWNiXkEyXkFqcGdeQXVyMTg1MTc3MQ@@._V1_SX300.jpg"
+            alt=""
+          />
+        </div>
+        <div class="movie-info">
+          <div class="movie-header">
+            <h2>Blade Runner</h2>
+          </div>
+          <div class="meta-info">
+            <p>117 min</p>
+            <p>Action, Drama, Sci-fi</p>
+            <p>Watchlist</p>
+          </div>
+          <p class="movie-desc">
+            A blade runner must pursue and terminate four replicants who stole a
+            ship in space, and have returned to Earth to find their creator.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="index.js"></script>
+</html>

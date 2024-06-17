@@ -12,8 +12,7 @@ function search(movieName){
         moviesArray.forEach((movie) => {
             fetch(`https://www.omdbapi.com/?apikey=e4b359c9&i=${movie.imdbID}&plot=short`)
                 .then(response => response.json())
-                .then(data => {
-                        console.log(data)              
+                .then(data => {              
                         movieContainer.innerHTML += `
                             <div class="movie">
                                 <div class="poster">

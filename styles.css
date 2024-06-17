@@ -121,20 +121,21 @@ html{
     display: flex;
     align-items: center;
     gap: 1em;
-    height: 150px;
+    /* height: 150px; */
     width: 80%;
     margin: 0 2.5em;
+    padding: 1.2em 0;
     border-bottom: 1px solid #E5E7EB;
 }
 
 .poster{
-    height: 120px;
+    height: 100%;
     width: 85px;
     border-radius: 4px;
 }
 
 .poster > img{
-    height: 120px;
+    height: 100%;
     width: 85px;
     border-radius: 4px;
     box-shadow: 0 1px 5px 0px #000000;

@@ -122,18 +122,20 @@ html{
     align-items: center;
     gap: 1em;
     height: 150px;
-    max-width: 1000px;
+    width: 80%;
     margin: 0 2.5em;
     border-bottom: 1px solid #E5E7EB;
 }
 
 .poster{
     height: 120px;
+    width: 85px;
     border-radius: 4px;
 }
 
 .poster > img{
     height: 120px;
+    width: 85px;
     border-radius: 4px;
     box-shadow: 0 1px 5px 0px #000000;
     
@@ -141,6 +143,8 @@ html{
 
 .movie-header{
     display: flex;
+    align-items: center;
+    gap: 0.5em;
     color: #000000;
     font-size: 1.125rem;
 }
@@ -155,9 +159,10 @@ html{
 .meta-info{
     display: flex;
     justify-content: flex-start;
-    gap: 1.5em;
+    gap: 1.2em;
     font-size: 0.6rem;
     color: #111827;
+    font-weight: 500;
 }
 
 .movie-desc{
@@ -168,4 +173,15 @@ html{
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.fa-star{
+    font-size: 0.6rem;
+    color: #FEC654;
+}
+
+.rating{
+    font-size: 0.6rem;
+    color: #111827;
+    font-weight: 500;
 }

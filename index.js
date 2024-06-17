@@ -41,9 +41,6 @@ function search(movieName){
                             </div>
                             `   
                     })
-                    
-        
-        
         })
              
     })

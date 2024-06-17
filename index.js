@@ -1,5 +1,6 @@
 const searchForm = document.getElementById('search-form')
 const searchBox = document.getElementById('search-box')
+const movieContainer = document.getElementById('movie-container')
 
 let moviesHtml = ''
 function search(movieName){
@@ -7,14 +8,13 @@ function search(movieName){
     .then(response => response.json())
     .then(data => {
         const moviesArray = data.Search
-        document.getElementById('film-icon-placeholder').style.display = "none"
-        // document.getElementById('movie-container').style.alignItems = "start"
+        
         moviesArray.forEach((movie) => {
             fetch(`https://www.omdbapi.com/?apikey=e4b359c9&i=${movie.imdbID}&plot=short`)
                 .then(response => response.json())
                 .then(data => {
                         console.log(data)              
-                        document.getElementById('movie-container').innerHTML += `
+                        movieContainer.innerHTML += `
                             <div class="movie">
                                 <div class="poster">
                                     <img
@@ -44,11 +44,10 @@ function search(movieName){
         })
              
     })
-    // console.log(moviesHtml)
-    // document.getElementById('movie-container').innerHTML = moviesHtml
 }
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault()
+    movieContainer.innerHTML = ''
     search(searchBox.value)
 })

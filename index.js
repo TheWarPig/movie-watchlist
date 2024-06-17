@@ -3,14 +3,14 @@ const searchBox = document.getElementById('search-box')
 
 let moviesHtml = ''
 function search(movieName){
-    fetch(`http://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}`)
+    fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}`)
     .then(response => response.json())
     .then(data => {
         const moviesArray = data.Search
         document.getElementById('film-icon-placeholder').style.display = "none"
         // document.getElementById('movie-container').style.alignItems = "start"
         moviesArray.forEach((movie) => {
-            fetch(`http://www.omdbapi.com/?apikey=e4b359c9&i=${movie.imdbID}&plot=short`)
+            fetch(`https://www.omdbapi.com/?apikey=e4b359c9&i=${movie.imdbID}&plot=short`)
                 .then(response => response.json())
                 .then(data => {
                         console.log(data)              

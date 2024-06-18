@@ -19,14 +19,23 @@
   </head>
   <body>
     <header>
-      <div class="header">
-        <h1 class="header-title">Find your film</h1>
-        <a class="my-watchlist">My Watchlist</a>
+      <div class="container">
+        <div class="header">
+          <h1 class="header-title">Find your film</h1>
+          <a class="my-watchlist" href="/myWatchlist.html">My Watchlist</a>
+        </div>
       </div>
     </header>
     <form id="search-form" class="search-container">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" name="search" class="search-box" id="search-box" />
+      <input
+        type="text"
+        name="search"
+        class="search-box"
+        id="search-box"
+        placeholder="Movie title"
+        required
+      />
       <button type="submit" class="search-btn" id="search-btn">Search</button>
     </form>
 
@@ -36,6 +45,6 @@
         <h2>Start exploring</h2>
       </div>
     </main>
+    <script src="index.js"></script>
   </body>
-  <script src="index.js"></script>
 </html>

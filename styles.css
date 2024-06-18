@@ -223,3 +223,8 @@ a, a:visited{
     color: #111827;
     font-weight: 500;
 }
+
+.no-movies{
+    display: flex;
+    gap: 0.5em;
+}

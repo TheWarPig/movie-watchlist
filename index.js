@@ -8,6 +8,8 @@ async function search(movieName){
     const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}`)
     const data = await response.json()
     if(!data.Error){
+        moviesHtml = ''
+        movieContainer.innerHTML = ''
         const moviesArray = data.Search    
         const fetchMovies = moviesArray.map(movie => {
             return fetch(`https://www.omdbapi.com/?apikey=e4b359c9&i=${movie.imdbID}&type=movie&plot=short`)
@@ -101,7 +103,7 @@ const isWhitespaceString = str => !str.replace(/\s/g, '').length
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault()
     if (!isWhitespaceString(searchBox.value)){
-        movieContainer.innerHTML = ''
+        // movieContainer.innerHTML = ''
         search(searchBox.value)
         
     }

@@ -7,6 +7,8 @@ let moviesHtml = ''
 async function search(movieName){
     const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}`)
     const data = await response.json()
+    console.log(data)
+    console.log(data.Error)
     if(!data.Error){
         const moviesArray = data.Search    
         const fetchMovies = moviesArray.map(movie => {
@@ -71,15 +73,17 @@ async function search(movieName){
             })
         })
         }
-
-        movieContainer.innerHTML = `
-            <div class="film-icon-placeholder" id="film-icon-placeholder">
-                <div class="no-movies">
-                    <h2>Opps! No movies were found</h2>
-                    <i class="fa-regular fa-face-frown-open"></i>
+        else{
+            movieContainer.innerHTML = `
+                <div class="film-icon-placeholder" id="film-icon-placeholder">
+                    <div class="no-movies">
+                        <h2>Opps! No movies were found</h2>
+                        <i class="fa-regular fa-face-frown-open"></i>
+                    </div>
                 </div>
-            </div>
-        `
+            `
+        }
+        
     
 }
         

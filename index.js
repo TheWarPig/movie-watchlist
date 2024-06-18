@@ -1,9 +1,18 @@
 const searchForm = document.getElementById('search-form')
 const searchBox = document.getElementById('search-box')
 const movieContainer = document.getElementById('movie-container')
-
+const watchListNumber = document.getElementById('watchlist-num')
 
 let moviesHtml = ''
+
+document.addEventListener('DOMContentLoaded', async function() {
+    const watchlist = getWatchlist()
+    if(watchlist.length > 0){
+        watchListNumber.style.display = 'flex'
+        watchListNumber.textContent = watchlist.length
+    }
+})
+
 async function search(movieName){
     const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}&type=movie`)
     const data = await response.json()
@@ -59,6 +68,8 @@ async function search(movieName){
                 // Add the movieId to the watchlist array if it's not already in there
                 if (!watchlist.includes(movieId)) {
                     watchlist.push(movieId)
+                    watchListNumber.style.display = 'flex'
+                    watchListNumber.textContent = watchlist.length
                     alert(`${movieName} was added to the watchlist`)
                 }
                 else {

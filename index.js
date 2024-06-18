@@ -7,8 +7,6 @@ let moviesHtml = ''
 async function search(movieName){
     const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}`)
     const data = await response.json()
-    console.log(data)
-    console.log(data.Error)
     if(!data.Error){
         const moviesArray = data.Search    
         const fetchMovies = moviesArray.map(movie => {

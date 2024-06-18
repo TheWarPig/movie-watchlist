@@ -58,10 +58,10 @@ async function search(movieName){
             // Add the movieId to the watchlist array if it's not already in there
             if (!watchlist.includes(movieId)) {
                 watchlist.push(movieId)
-                alert(`Added ${movieName} to watchlist`)
+                alert(`${movieName} was added to the watchlist`)
             }
             else {
-                alert(`${movieName} already in watchlist`)
+                alert(`${movieName} is already in the watchlist`)
             }
 
             // Save the updated watchlist back to local storage

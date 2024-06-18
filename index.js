@@ -5,7 +5,7 @@ const movieContainer = document.getElementById('movie-container')
 
 let moviesHtml = ''
 async function search(movieName){
-    const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}&type=movie`)
     const data = await response.json()
     if(!data.Error){
         moviesHtml = ''

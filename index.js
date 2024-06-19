@@ -17,6 +17,7 @@ async function search(movieName){
     const response = await fetch(`https://www.omdbapi.com/?apikey=e4b359c9&s=${movieName}&type=movie`)
     const data = await response.json()
     if(!data.Error){
+        const watchlist = getWatchlist()
         moviesHtml = ''
         movieContainer.innerHTML = ''
         const moviesArray = data.Search    
@@ -42,10 +43,14 @@ async function search(movieName){
                                 <div class="meta-info">
                                     <p>${data.Runtime}</p>
                                     <p>${data.Genre}</p>
-                                    <p class="watchlist-div" id="watchlist-div" data-movieid=${data.imdbID} data-movie-name="${data.Title}">
-                                        <i class="fa-solid fa-circle-plus"></i>
-                                        Watchlist
-                                    </p>
+                                    ${watchlist.find(id => id === data.imdbID) ?
+                                        `<p class="watchlist-div added" id="watchlist-div" data-movieid=${data.imdbID} data-movie-name="${data.Title}">
+                                            In watchlist
+                                        </p>` :
+                                        `<p class="watchlist-div" id="watchlist-div" data-movieid=${data.imdbID} data-movie-name="${data.Title}">
+                                                <i class="fa-solid fa-circle-plus" ></i>
+                                                Watchlist
+                                        </p>`}
                                 </div>
                                 <p class="movie-desc">
                                     ${data.Plot}
@@ -60,9 +65,9 @@ async function search(movieName){
         movieContainer.innerHTML = moviesHtml
         document.querySelectorAll('.watchlist-div').forEach(node => {
             node.addEventListener('click', (e) =>{
-                const movieId = e.target.dataset.movieid
-                const movieName = e.target.dataset.movieName
-                // const moveName = e.target.
+                const movieId = node.dataset.movieid
+                const movieName = node.dataset.movieName
+                
                 let watchlist = getWatchlist()
 
                 // Add the movieId to the watchlist array if it's not already in there
@@ -70,12 +75,13 @@ async function search(movieName){
                     watchlist.push(movieId)
                     watchListNumber.style.display = 'flex'
                     watchListNumber.textContent = watchlist.length
-                    alert(`${movieName} was added to the watchlist`)
+                    console.log(node)
+                    node.innerHTML = `
+                            In watchlist
+                        `
+                    node.classList.add('added')
                 }
-                else {
-                    alert(`${movieName} is already in the watchlist`)
-                }
-
+                
                 // Save the updated watchlist back to local storage
                 saveWatchlist(watchlist)
 

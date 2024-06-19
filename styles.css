@@ -221,6 +221,11 @@ a, a:visited{
     gap: 0.5em;
 }
 
+.added{
+    cursor: default;
+    color: #39d167;
+}
+
 .movie-desc{
     font-size: 0.75rem;
     word-spacing: 2px;
